@@ -3,7 +3,7 @@ module ActiveTax
     attr_accessor :state, :api_class
 
     def self.rate(address={})
-      throw "You must provide a state to use ActiveTax::Tax.rate" unless address[:state]
+      raise StandardError, "You must provide a state to use ActiveTax::Tax.rate" unless address[:state]
       self.new(address[:state]).rate_from_address(address)
     end
 
@@ -18,7 +18,7 @@ module ActiveTax
       when "WA"
         self.api_class = States::WA
       else
-        throw "API for #{self.state.upcase} not yet implemented in ActiveTax."
+        raise StandardError, "API for #{self.state.upcase} not yet implemented in ActiveTax."
       end
 
       self.api_class.rate(address)
