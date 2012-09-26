@@ -1,6 +1,8 @@
 # ActiveTax
 
-TODO: Write a gem description
+A Ruby gem for retrieving local sales tax rates from various government APIs. Currently
+only supports Washington State sales tax, but feel free to write your own state's implementations
+and do pull requests.
 
 ## Installation
 
@@ -18,12 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+tax_rate = ActiveTax::Tax.rate {
+  address: "6500 Linderson Way",
+  city: "",
+  zip: "98501",
+  state: "WA"
+}
+
+puts tax_rate #=> 0.087
+```
 
 ## Contributing
 
+Contributions are very welcome!
+
 1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+2. Commit your changes (`git commit -am 'Added some feature'`)
+3. Push to the branch (`git push origin my-new-feature`)
+4. Create new Pull Request
