@@ -14,7 +14,7 @@ module ActiveTax
 
         require 'net/http' # Needed for HTTP requests
       
-        uri = URI("#{API_URI}#{options_string}")
+        uri = URI("#{API_URI}")
         uri.query = URI.encode_www_form(params)
 
         res = Net::HTTP.get_response(uri)
