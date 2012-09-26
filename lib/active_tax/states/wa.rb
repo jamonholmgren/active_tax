@@ -1,8 +1,6 @@
 module ActiveTax
   module States
     module WA
-      require 'net/http' # Needed for HTTP requests
-      
       module_function
 
       API_URI = "http://dor.wa.gov/AddressRates.aspx"
@@ -16,6 +14,8 @@ module ActiveTax
           zip: "#{address[:zip]}"
         }
 
+        require 'net/http' # Needed for HTTP requests
+      
         uri = URI("#{API_URI}#{options_string}")
         uri.query = URI.encode_www_form(params)
 
