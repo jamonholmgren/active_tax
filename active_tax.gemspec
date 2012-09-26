@@ -8,6 +8,8 @@ Gem::Specification.new do |gem|
   gem.summary       = "A Ruby gem for retrieving local sales tax rates from various government APIs."
   gem.homepage      = "https://github.com/jamonholmgren/active_tax"
 
+  gem.platform     = Gem::Platform::RUBY
+
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})

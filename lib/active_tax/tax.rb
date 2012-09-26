@@ -16,7 +16,7 @@ module ActiveTax
 
       case self.state.upcase
       when "WA"
-        self.api_class = ActiveTax::States::WA
+        self.api_class = States::WA
       else
         throw "API for #{self.state.upcase} not yet implemented in ActiveTax."
       end

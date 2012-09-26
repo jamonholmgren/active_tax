@@ -1,11 +1,9 @@
 module ActiveTax
   module States
-    module WA
-      module_function
-
+    class WA
       API_URI = "http://dor.wa.gov/AddressRates.aspx"
 
-      def rate(address={})
+      def self.rate(address={})
         # http://dor.wa.gov/AddressRates.aspx?output=text&addr=6500%20Linderson%20way&city=&zip=98501
         params = {
           output: "text",
@@ -23,14 +21,14 @@ module ActiveTax
 
         # LocationCode=3406 Rate=0.087 ResultCode=0
         if res.is_a?(Net::HTTPSuccess)
-          result = parse_result(res.body)
+          result = self.parse_result(res.body)
           return result["Rate"].to_f
         else
           return false
         end
       end
 
-      def parse_result(text)
+      def self.parse_result(text)
         r = {}
         items = text.split(" ")
         items.each do |item|
