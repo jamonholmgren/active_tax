@@ -22,12 +22,12 @@ Or install it yourself as:
 
 ```ruby
 
-tax_rate = ActiveTax::Tax.rate {
+tax_rate = ActiveTax::Tax.rate({
   address: "6500 Linderson Way",
   city: "",
   zip: "98501",
   state: "WA"
-}
+})
 
 puts tax_rate #=> 0.087
 ```
