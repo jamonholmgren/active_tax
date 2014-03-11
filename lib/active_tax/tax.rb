@@ -15,7 +15,7 @@ module ActiveTax
       self.state = address[:state] if address[:state]
 
       case self.state.upcase
-      when "WA"
+      when "WA", "WASHINGTON"
         self.api_class = States::WA
       else
         raise StandardError, "API for #{self.state.upcase} not yet implemented in ActiveTax."

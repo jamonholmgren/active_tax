@@ -38,5 +38,6 @@ module ActiveTax
         r
       end
     end
+    WASHINGTON = WA unless defined?(WASHINGTON)
   end
 end
