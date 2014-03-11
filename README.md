@@ -40,3 +40,7 @@ Contributions are very welcome!
 2. Commit your changes (`git commit -am 'Added some feature'`)
 3. Push to the branch (`git push origin my-new-feature`)
 4. Create new Pull Request
+
+## License
+
+MIT

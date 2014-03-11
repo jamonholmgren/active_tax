@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = "A Ruby gem for retrieving local sales tax rates from various government APIs. Currently only supports Washington State tax, but feel free to submit pull requests."
   gem.summary       = "A Ruby gem for retrieving local sales tax rates from various government APIs."
   gem.homepage      = "https://github.com/jamonholmgren/active_tax"
+  gem.license       = "MIT"
 
   gem.platform     = Gem::Platform::RUBY
 
