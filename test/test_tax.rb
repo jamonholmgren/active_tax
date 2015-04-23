@@ -2,7 +2,6 @@ require_relative './test_helper'
 
 class TestTax < Minitest::Unit::TestCase
   def test_real_rate
-    puts "test_real_rate"
     rate = ActiveTax::Tax.rate({
       address: "6500 Linderson Way",
       city: "",
