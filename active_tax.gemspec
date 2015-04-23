@@ -12,9 +12,13 @@ Gem::Specification.new do |gem|
   gem.platform     = Gem::Platform::RUBY
 
   gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  # gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(test)/})
   gem.name          = "active_tax"
   gem.require_paths = ["lib"]
   gem.version       = ActiveTax::VERSION
+
+  gem.add_development_dependency "rake"
+  gem.add_development_dependency "minitest"
+  gem.add_development_dependency "minitest-reporters"
 end
