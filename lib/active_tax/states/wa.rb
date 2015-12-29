@@ -28,7 +28,8 @@ module ActiveTax
       end
 
       def self.rate(address={})
-        tax(address).rate
+        tax_data = tax(address)
+        tax_data && tax_data.rate
       end
 
       def self.parse_result(text)
