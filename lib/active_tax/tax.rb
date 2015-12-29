@@ -1,27 +1,50 @@
 module ActiveTax
   class Tax
-    attr_accessor :state, :api_class
+    attr_accessor :state, :address, :api_class
 
     def self.rate(address={})
       raise StandardError, "You must provide a state to use ActiveTax::Tax.rate" unless address[:state]
-      self.new(address[:state]).rate_from_address(address)
+      self.new(address).rate
     end
 
-    def initialize(state)
-      self.state = state
+    def initialize(address)
+      self.state = address[:state]
+      self.address = address
+
+      determine_state_api
     end
 
     def rate_from_address(address={})
-      self.state = address[:state] if address[:state]
+      raise "#rate_from_address is deprecated. Use #rate instead."
+    end
 
+    def tax
+      @tax ||= self.api_class.tax(address)
+    end
+
+    def rate
+      tax.rate
+    end
+
+    def location_code
+      tax.location_code
+    end
+
+    def result_code
+      tax.result_code
+    end
+
+    private
+
+    def determine_state_api
       case self.state.upcase
-      when "WA", "WASHINGTON"
-        self.api_class = States::WA
-      else
-        raise StandardError, "API for #{self.state.upcase} not yet implemented in ActiveTax."
+      when "WA", "WASHINGTON" then self.api_class = States::WA
+      else raise StandardError, "API for #{self.state.upcase} not yet implemented in ActiveTax."
       end
+    end
 
-      self.api_class.rate(address)
+    def api_data
+
     end
   end
 end
