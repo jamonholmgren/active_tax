@@ -8,7 +8,7 @@ own state's implementations and do pull requests.
 
 Add this line to your application's Gemfile:
 
-    gem 'active_tax'
+    gem 'active_tax', '~> 1.0.0'
 
 ## Usage
 
