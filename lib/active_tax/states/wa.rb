@@ -1,10 +1,10 @@
 module ActiveTax
   module States
     class WA
-      API_URI = "http://dor.wa.gov/AddressRates.aspx"
+      API_URI = "http://rateservice.dor.wa.gov/text"
 
       def self.tax(address={})
-        # http://dor.wa.gov/AddressRates.aspx?output=text&addr=6500%20Linderson%20way&city=&zip=98501
+        # http://rateservice.dor.wa.gov/text?output=text&addr=6500%20Linderson%20way&city=&zip=98501
         params = {
           output: "text",
           addr: "#{address[:address]}",
