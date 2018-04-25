@@ -7,7 +7,7 @@ Currently only supports Washington State sales tax, but feel free to write your 
 
 Add this line to your application's Gemfile:
 
-    gem 'active_tax', '~> 1.0.0'
+    gem 'active_tax', '~> 1.1.0'
 
 ## Usage
 
