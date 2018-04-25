@@ -1,6 +1,6 @@
 require_relative './test_helper'
 
-class TestTax < Minitest::Unit::TestCase
+class TestTax < Minitest::Test
   def test_real_rate
     rate = ActiveTax::Tax.rate({
       address: "6500 Linderson Way",
@@ -20,7 +20,7 @@ class TestTax < Minitest::Unit::TestCase
       state: "WA"
     })
 
-    assert_equal rate, -1
+    assert_equal rate, false
   end
 
   def test_other_tax_info

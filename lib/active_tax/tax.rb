@@ -23,15 +23,15 @@ module ActiveTax
     end
 
     def rate
-      tax.rate
+      tax && tax.rate
     end
 
     def location_code
-      tax.location_code
+      tax && tax.location_code
     end
 
     def result_code
-      tax.result_code
+      tax && tax.result_code
     end
 
     private

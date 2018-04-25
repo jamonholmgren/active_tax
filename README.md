@@ -1,8 +1,7 @@
 # ActiveTax
 
 A Ruby gem for retrieving local sales tax rates from various government APIs.
-Currently only supports Washington State sales tax, but feel free to write your
-own state's implementations and do pull requests.
+Currently only supports Washington State sales tax, but feel free to write your own state's implementations and do pull requests.
 
 ## Installation
 
@@ -20,7 +19,7 @@ tax = ActiveTax::Tax.new({
   zip: "98501",
 })
 
-# tax is a Struct with #rate, #location_code, and #result_code properties.
+# tax is an object with #rate, #location_code, and #result_code properties.
 
 puts tax.rate #=> 0.087
 puts tax.location_code #=> "3406"
