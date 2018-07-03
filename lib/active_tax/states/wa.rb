@@ -4,6 +4,8 @@ module ActiveTax
       API_URI = "http://webgis.dor.wa.gov/webapi/AddressRates.aspx/text"
 
       def self.tax(address={})
+        raise StandardError.new("You must provide a street address to access Washington State sales tax rates. #{address.inspect}") if !address[:address]
+
         # http://webgis.dor.wa.gov/webapi/AddressRates.aspx/text?output=text&addr=6500+Linderson+Way&city=Tumwater&zip=98501
         params = {
           output: "text",

@@ -42,9 +42,5 @@ module ActiveTax
       else raise StandardError, "API for #{self.state.upcase} not yet implemented in ActiveTax."
       end
     end
-
-    def api_data
-
-    end
   end
 end
