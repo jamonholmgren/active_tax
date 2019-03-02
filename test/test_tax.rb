@@ -33,6 +33,18 @@ class TestTax < Minitest::Test
 
     assert_in_delta tax.rate * 100.0, 8.2, 2.5 # 8.2%, within about 2.5%
     assert_equal tax.location_code, "3406"
-    assert_equal tax.result_code, "0"
+    assert_equal tax.result_code, "2"
+  end
+
+  def test_missing_info
+    tax = ActiveTax::Tax.new({
+      city: "Seattle",
+      zip: "98102",
+      state: "WA"
+    })
+
+    assert_raises StandardError do
+      tax.result_code
+    end
   end
 end
